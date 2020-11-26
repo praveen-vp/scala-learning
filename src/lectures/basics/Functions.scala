@@ -47,11 +47,11 @@ object Functions extends App {
   // 1 * 2 * 3 * 4 ...
 
   def factorial(n: Int): Int = {
-    if (n <= 0) 1
-    else factorial(n - 1) * n
+    if (n <= 1) 1
+    else n * factorial(n - 1)
   }
 
-  println(factorial(4))
+  println("factorial :: " + factorial(9))
 
   // fibonacci series
   // f(1) = 1, f(2) = 1, f(n) = f(n-1) + f(n-2)
