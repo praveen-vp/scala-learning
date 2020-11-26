@@ -73,7 +73,7 @@ object Expressions extends App {
 
   // exercises
   /*
-    1 . diiff between "hello world" vs println("hello World")
+    1 . diff between "hello world" vs println("hello World")
     Ans : "hello world" is a string literal
           println("hello world") is an expression, and a 'side effect'
    */
