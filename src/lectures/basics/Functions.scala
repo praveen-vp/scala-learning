@@ -1,6 +1,8 @@
 package com.pvp
 package lectures.basics
 
+import scala.annotation.tailrec
+
 /**
   * Created by praveen-vp on  11/26/2020
   *
@@ -66,6 +68,7 @@ object Functions extends App {
   // prime number check
   def isPrime(n: Int): Boolean = {
 
+    @tailrec
     def isPrimeUntil(t: Int): Boolean =
       if (t <= 1) true
       else n % t != 0 && isPrimeUntil(t - 1)
