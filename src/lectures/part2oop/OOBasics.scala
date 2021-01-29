@@ -7,28 +7,28 @@ package lectures.part2oop
  */
 object OOBasics extends App {
 
-  val person = new Person("praveen", 11)
+  val person = new PersonOOB("praveen", 11)
   println(person.age)
   person.greet("john")
-  val p2 = new Person("John 2")
+  val p2 = new PersonOOB("John 2")
   println(p2.age)
   p2.greet("Praveen VP ")
 
   // writer class testing
-  val author = new Writer("praveen", "v-p", 1990)
+  val author = new WriterOOB("praveen", "v-p", 1990)
   println(author.getFullName)
 
   // Novel class testing
-  val novel = new Novel("novel name", 2000, author)
+  val novel = new NovelOOB("novel name", 2000, author)
   println(novel.writersAge)
   println(novel.isWrittenBy(author)) // true
 
-  val author2 = new Writer("praveen", "v-p", 1990)
+  val author2 = new WriterOOB("praveen", "v-p", 1990)
   println(novel.isWrittenBy(author2)) // false
 
 
   // Counter Class testing
-  val counter = new Counter
+  val counter = new CounterOOB
   counter.inc
   counter.inc.inc
   counter.dec
@@ -36,7 +36,7 @@ object OOBasics extends App {
 }
 
 
-class Person(name: String, val age: Int = 0) { // as constructor
+class PersonOOB(name: String, val age: Int = 0) { // as constructor
 
   val x = 12
   println(x) // this will be invoked when the class is invoked, class as a code block
@@ -63,7 +63,7 @@ class Person(name: String, val age: Int = 0) { // as constructor
  *
  * Create a method for getting full name
  */
-class Writer(val firstName: String, val lastName: String, val yearOfBirth: Int) {
+class WriterOOB(val firstName: String, val lastName: String, val yearOfBirth: Int) {
 
   def getFullName: String =
     this.firstName + " " + this.lastName
@@ -77,13 +77,13 @@ class Writer(val firstName: String, val lastName: String, val yearOfBirth: Int) 
  *     3.
  */
 
-class Novel(val name: String, val yearOfRelease: Int, val author: Writer) {
+class NovelOOB(val name: String, val yearOfRelease: Int, val author: WriterOOB) {
 
   def writersAge = this.yearOfRelease - author.yearOfBirth
 
-  def isWrittenBy(author: Writer) = this.author == author
+  def isWrittenBy(author: WriterOOB) = this.author == author
 
-  def copyRelease(newYear: Int): Novel = new Novel(this.name, newYear, this.author)
+  def copyRelease(newYear: Int): NovelOOB = new NovelOOB(this.name, newYear, this.author)
 }
 
 /**
@@ -93,27 +93,27 @@ class Novel(val name: String, val yearOfRelease: Int, val author: Writer) {
  * method to dec/increment count => new counter
  * overload methods dec/increment on a received input
  */
-class Counter(val count: Int = 0) {
+class CounterOOB(val count: Int = 0) {
 
   def currentCount = this.count
 
-  def inc: Counter = {
+  def inc: CounterOOB = {
     println("incrementing...")
-    new Counter(this.count + 1)
+    new CounterOOB(this.count + 1)
   } // immutability
 
-  def dec: Counter = {
+  def dec: CounterOOB = {
     println("decrementing ... ")
-    new Counter(this.count - 1)
+    new CounterOOB(this.count - 1)
   } // immutability
 
   // overloaded methods
-  def inc(n: Int): Counter = {
+  def inc(n: Int): CounterOOB = {
     if (n <= 0) this
     else inc.inc(n - 1)
   }
 
-  def dec(n: Int): Counter = {
+  def dec(n: Int): CounterOOB = {
     if (n <= 0) this
     else dec.dec(n - 1)
   }

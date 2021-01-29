@@ -56,10 +56,10 @@ object MethodNotations extends App {
    */
 
   // Ex.1
-  println((praveen + ("rock star")) ())
+  println(praveen + "rock star")
   println((+praveen).age)
-  println(praveen.learScala())
-  println(praveen learScala) // syntax sugar
+  println(praveen.learnScala())
+  println(praveen learnScala) // syntax sugar
 
   println(praveen(2)) // calls apply method overloaded
 
@@ -77,7 +77,7 @@ object MethodNotations extends App {
 
     def unary_+ : Person = new Person(name, favMovie, age + 1) // prefix
 
-    def learScala(): String = learns("scala")
+    def learnScala(): String = learns("scala")
 
     def learns(aString: String): String = s"$name learns $aString"
 
@@ -86,7 +86,6 @@ object MethodNotations extends App {
     def print(): Unit = {
       println(name + ", " + favMovie + ", " + age)
     }
-
   }
 
 }
