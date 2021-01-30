@@ -40,7 +40,7 @@ class Cons(h: Int, t: MyList) extends MyList {
   }
 }
 
-object ListTest extends App {
+object GenericListTest extends App {
 
   val list = new Cons(1, Empty)
   println(list.isEmpty)
